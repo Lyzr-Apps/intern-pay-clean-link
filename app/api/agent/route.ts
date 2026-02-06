@@ -4,6 +4,11 @@ import parseLLMJson from '@/lib/jsonParser'
 const LYZR_API_URL = 'https://agent-prod.studio.lyzr.ai/v3/inference/chat/'
 const LYZR_API_KEY = process.env.LYZR_API_KEY || ''
 
+// Retry configuration
+const MAX_RETRIES = 3
+const BASE_DELAY = 1000 // 1 second
+const MAX_DELAY = 10000 // 10 seconds
+
 // Types
 interface NormalizedAgentResponse {
   status: 'success' | 'error'
@@ -14,6 +19,18 @@ interface NormalizedAgentResponse {
     timestamp?: string
     [key: string]: any
   }
+}
+
+// Sleep utility for retry delays
+function sleep(ms: number): Promise<void> {
+  return new Promise(resolve => setTimeout(resolve, ms))
+}
+
+// Calculate exponential backoff delay
+function getRetryDelay(attempt: number): number {
+  const delay = BASE_DELAY * Math.pow(2, attempt)
+  const jitter = Math.random() * 1000 // Add random jitter to avoid thundering herd
+  return Math.min(delay + jitter, MAX_DELAY)
 }
 
 function generateUUID(): string {
@@ -146,50 +163,103 @@ export async function POST(request: NextRequest) {
       payload.assets = assets
     }
 
-    const response = await fetch(LYZR_API_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': LYZR_API_KEY,
-      },
-      body: JSON.stringify(payload),
-    })
+    // Retry logic with exponential backoff for 429 errors
+    let lastError: any = null
+    let lastResponse: Response | null = null
+    let rawText = ''
 
-    const rawText = await response.text()
-
-    if (response.ok) {
-      const parsed = parseLLMJson(rawText)
-
-      if (parsed?.success === false && parsed?.error) {
-        return NextResponse.json({
-          success: false,
-          response: {
-            status: 'error',
-            result: {},
-            message: parsed.error,
-          },
-          error: parsed.error,
-          raw_response: rawText,
-        })
-      }
-
-      const normalized = normalizeResponse(parsed)
-
-      return NextResponse.json({
-        success: true,
-        response: normalized,
-        agent_id,
-        user_id: finalUserId,
-        session_id: finalSessionId,
-        timestamp: new Date().toISOString(),
-        raw_response: rawText,
-      })
-    } else {
-      let errorMsg = `API returned status ${response.status}`
+    for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
       try {
-        const errorData = parseLLMJson(rawText) || JSON.parse(rawText)
-        errorMsg = errorData?.error || errorData?.message || errorMsg
-      } catch {}
+        const response = await fetch(LYZR_API_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'x-api-key': LYZR_API_KEY,
+          },
+          body: JSON.stringify(payload),
+        })
+
+        rawText = await response.text()
+        lastResponse = response
+
+        // Success case
+        if (response.ok) {
+          const parsed = parseLLMJson(rawText)
+
+          if (parsed?.success === false && parsed?.error) {
+            return NextResponse.json({
+              success: false,
+              response: {
+                status: 'error',
+                result: {},
+                message: parsed.error,
+              },
+              error: parsed.error,
+              raw_response: rawText,
+            })
+          }
+
+          const normalized = normalizeResponse(parsed)
+
+          return NextResponse.json({
+            success: true,
+            response: normalized,
+            agent_id,
+            user_id: finalUserId,
+            session_id: finalSessionId,
+            timestamp: new Date().toISOString(),
+            raw_response: rawText,
+            retry_attempt: attempt > 0 ? attempt : undefined,
+          })
+        }
+
+        // Rate limit error - retry with exponential backoff
+        if (response.status === 429) {
+          if (attempt < MAX_RETRIES) {
+            const delay = getRetryDelay(attempt)
+            console.log(`Rate limited (429). Retrying in ${delay}ms... (attempt ${attempt + 1}/${MAX_RETRIES})`)
+            await sleep(delay)
+            continue
+          }
+          // Max retries exceeded for 429
+          lastError = {
+            status: 429,
+            message: 'Rate limit exceeded. Please try again in a few moments.',
+            rawText,
+          }
+          break
+        }
+
+        // Other errors - don't retry
+        lastError = {
+          status: response.status,
+          rawText,
+        }
+        break
+      } catch (error) {
+        lastError = error
+        if (attempt < MAX_RETRIES) {
+          const delay = getRetryDelay(attempt)
+          console.log(`Network error. Retrying in ${delay}ms... (attempt ${attempt + 1}/${MAX_RETRIES})`)
+          await sleep(delay)
+          continue
+        }
+        break
+      }
+    }
+
+    // Handle final error after retries
+    if (lastResponse && !lastResponse.ok) {
+      let errorMsg = lastError?.message || `API returned status ${lastResponse.status}`
+
+      if (lastResponse.status === 429) {
+        errorMsg = 'Too many requests. The service is currently busy. Please wait a moment and try again.'
+      } else {
+        try {
+          const errorData = parseLLMJson(rawText) || JSON.parse(rawText)
+          errorMsg = errorData?.error || errorData?.message || errorMsg
+        } catch {}
+      }
 
       return NextResponse.json(
         {
@@ -201,10 +271,14 @@ export async function POST(request: NextRequest) {
           },
           error: errorMsg,
           raw_response: rawText,
+          retry_attempts: MAX_RETRIES,
         },
-        { status: response.status }
+        { status: lastResponse.status }
       )
     }
+
+    // Network or other error
+    throw lastError || new Error('Unknown error occurred')
   } catch (error) {
     const errorMsg = error instanceof Error ? error.message : 'Server error'
     return NextResponse.json(
