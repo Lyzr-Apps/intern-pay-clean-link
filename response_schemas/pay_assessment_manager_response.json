@@ -1,0 +1,445 @@
+{
+  "agent_name": "Pay Assessment Manager",
+  "agent_id": "6985af5c2a763ad393eee3ed",
+  "agent_purpose": "pay_assessment_coordination",
+  "description": "Orchestrates comprehensive pay assessment by coordinating benchmark analysis, negotiation coaching, and story curation",
+  "response_schema": {
+    "status": "string",
+    "result": {
+      "verdict": "string",
+      "currentStipend": "number",
+      "suggestedFairStipend": {
+        "min": "number",
+        "max": "number"
+      },
+      "percentageDifference": "number",
+      "industryAverages": {
+        "roleAverage": "number",
+        "cityAverage": "number",
+        "source": "string"
+      },
+      "benchmarkAnalysis": {
+        "verdict": "string",
+        "reasoning": "string",
+        "extremeCase": "boolean",
+        "safetyResources": "null"
+      },
+      "negotiationCoaching": {
+        "scenarios": [
+          {
+            "title": "string",
+            "steps": [
+              "string"
+            ],
+            "tips": [
+              "string"
+            ]
+          }
+        ],
+        "preDraftedMessages": {
+          "professional": "string",
+          "firm": "string",
+          "casual": "string"
+        },
+        "talkingPoints": [
+          "string"
+        ],
+        "additionalResources": {
+          "dosDonts": {
+            "dos": [
+              "string"
+            ],
+            "donts": [
+              "string"
+            ]
+          },
+          "timingAdvice": "string"
+        }
+      },
+      "anonymousStories": [
+        {
+          "role": "string",
+          "city": "string",
+          "companyType": "string",
+          "situation": "string",
+          "outcome": "string",
+          "keyLesson": "string",
+          "relevanceScore": "number"
+        }
+      ],
+      "summary": {
+        "overallAssessment": "string",
+        "nextSteps": [
+          "string"
+        ],
+        "confidenceLevel": "string"
+      }
+    },
+    "metadata": {
+      "agent_name": "string",
+      "timestamp": "string",
+      "sub_agents_consulted": [
+        "string"
+      ]
+    }
+  },
+  "example_response": {
+    "status": "success",
+    "result": {
+      "verdict": "Underpaid",
+      "currentStipend": 15000,
+      "suggestedFairStipend": {
+        "min": 27000,
+        "max": 54000
+      },
+      "percentageDifference": -44.44,
+      "industryAverages": {
+        "roleAverage": 25000,
+        "cityAverage": 22000,
+        "source": "Based on 100+ similar internships in Bangalore metro area, 2024"
+      },
+      "benchmarkAnalysis": {
+        "verdict": "Underpaid",
+        "reasoning": "This is a software/tech internship in Bangalore, with in-demand skills (React, Node.js) and demanding hours (45/week). After applying the city, skill, company, and overtime multipliers, the fair stipend range should be significantly higher than \u20b915,000/month. The current stipend represents just over half the recommended minimum, categorizing it as underpaid for the expectations set.",
+        "extremeCase": false,
+        "safetyResources": null
+      },
+      "negotiationCoaching": {
+        "scenarios": [
+          {
+            "title": "Requesting initial stipend review",
+            "steps": [
+              "Research Bangalore stipend rates for similar software development internships (done via benchmark analysis).",
+              "Prepare a list of your key skills (JavaScript, React, Node.js) and recent contributions/projects.",
+              "Request a short meeting with [Manager Name] to discuss compensation.",
+              "Express appreciation for the opportunity, then share benchmark figures and politely state your ask for a stipend review.",
+              "Propose a range (INR 27,000\u201354,000) rather than a fixed number to allow room for discussion."
+            ],
+            "tips": [
+              "Acknowledge the startup\u2019s resource constraints but affirm the value you bring.",
+              "Open with gratitude to set a positive tone.",
+              "Be ready to explain your workload (45 hours/week) as above standard."
+            ]
+          },
+          {
+            "title": "Negotiating after demonstrating value",
+            "steps": [
+              "Document specific results or progress (e.g., shipped features, user feedback, code reviews).",
+              "Highlight where you took initiative or solved key problems using your skills.",
+              "Schedule a follow-up with [Manager Name] after 2\u20133 months of strong performance.",
+              "Reference both market benchmarks and your direct impact before requesting a revised stipend."
+            ],
+            "tips": [
+              "Data-driven impact stories can sway decisions.",
+              "Offer to take on greater responsibilities as part of the negotiation."
+            ]
+          },
+          {
+            "title": "Addressing unfair treatment",
+            "steps": [
+              "Maintain a log of hours worked and extra responsibilities handled beyond your initial scope.",
+              "Draft a message or request a discussion with [Manager Name] first; focus on collaborative problem-solving.",
+              "If the issue is not resolved, consider approaching HR or a mentor, using diplomatic language.",
+              "Suggest constructive solutions, such as adjusting workload or a midway stipend review."
+            ],
+            "tips": [
+              "Avoid accusatory language; stress fairness and mutual benefit.",
+              "Frame the conversation as a desire for a sustainable internship experience."
+            ]
+          },
+          {
+            "title": "Leveraging competing offers",
+            "steps": [
+              "If you receive an offer from another company, request a private meeting with [Manager Name].",
+              "Disclose the existence (not necessarily the details) of the competing offer.",
+              "Emphasize your preference to remain with [Company Name] if compensation can be made more competitive, referencing the market band.",
+              "Be respectful, not confrontational, to preserve relationships."
+            ],
+            "tips": [
+              "Do not fabricate offers.",
+              "Use this as a last resort, ensuring internal discussions have occurred first."
+            ]
+          }
+        ],
+        "preDraftedMessages": {
+          "professional": "Dear [Manager Name],\n\nI would like to express my gratitude for the opportunity to intern as a Software Development Intern at [Company Name]. Over the last few weeks, I have had the privilege of contributing to the team using my technical skills in JavaScript, React, and Node.js, and have enjoyed working in such a dynamic environment. \n\nI have researched current stipend practices for software interns in Bangalore, and market benchmarks indicate a fair stipend in the range of INR 27,000\u201354,000 per month for similar profiles and workloads. Given my weekly commitment of 45 hours and the current scope of responsibilities, I am seeking a review of my stipend, which is currently below this market standard.\n\nI am enthusiastic about further growing with [Company Name] and am open to discussing ways I can add additional value. I look forward to your feedback and guidance on this matter.\n\nBest regards,\n[Your Name]",
+          "firm": "Hello [Manager Name],\n\nThank you for your ongoing support. I want to initiate a candid conversation regarding my compensation as a Software Development Intern at [Company Name]. With my skill set in JavaScript, React, and Node.js, I have contributed significantly to recent projects, often working 45 hours per week. According to Bangalore tech internship benchmarks, a fair stipend falls between INR 27,000 and 54,000 monthly.\n\nCurrently, my stipend is INR 15,000, which is considerably below industry standards for this city and role. I believe my contributions and workload strongly justify an adjustment. I would appreciate it if we could discuss aligning my compensation closer to the prevailing rates. I remain committed to the company's goals and look forward to finding a fair resolution.\n\nThank you,\n[Your Name]",
+          "casual": "Hi [Manager Name],\n\nHope you\u2019re doing well! I\u2019ve really enjoyed being part of the [Company Name] team and working on projects with JavaScript, React, and Node.js. I\u2019m putting in about 45 hours a week and feel I\u2019ve been able to make a solid impact so far.\n\nI did some research and saw that tech interns in Bangalore are usually paid between INR 27,000 and 54,000 per month. My current stipend is quite a bit lower, so I wanted to check if there\u2019s a possibility to review it. I\u2019m eager to keep learning and contributing more, and am open to thoughts on how I can add extra value going ahead too!\n\nThanks for considering my request \ud83d\ude0a\n\nBest,\n[Your Name]"
+        },
+        "talkingPoints": [
+          "Market data shows the average stipend for software development interns in Bangalore is INR 27,000\u201354,000/month; my current stipend is only INR 15,000.",
+          "I am proficient in JavaScript, React, and Node.js and have contributed to key projects, taking on complex development tasks.",
+          "I consistently work 45 hours per week, which exceeds the standard internship workload.",
+          "Bangalore is a high cost-of-living city, making fair compensation critical for sustainability.",
+          "Startups value flexibility and impact\u2014my adaptability and technical skills have positively influenced our team\u2019s outcomes.",
+          "Industry norms for tech internships at startups suggest stipends should be competitive to attract and retain talent."
+        ],
+        "additionalResources": {
+          "dosDonts": {
+            "dos": [
+              "Do initiate the conversation respectfully, showing appreciation for the opportunity.",
+              "Do use market benchmarks and your work hours to support your case.",
+              "Do reference specific contributions and the value you bring using your skills.",
+              "Do suggest you\u2019re open to feedback and eager to contribute more."
+            ],
+            "donts": [
+              "Don\u2019t make ultimatums or threats; startups value collaboration.",
+              "Don\u2019t compare yourself negatively to colleagues or sound entitled.",
+              "Don\u2019t neglect to document your achievements and hours.",
+              "Don\u2019t escalate to HR/mentors without first trying to resolve with your manager."
+            ]
+          },
+          "timingAdvice": "The best time to request a stipend review is after successfully completing a major project milestone, receiving positive feedback, or at the midpoint of your internship. Aim for mid to late weekdays, when your manager is less likely to be overwhelmed. Avoid periods of team deadlines or financial planning cycles. If you have taken on extra responsibilities or worked extended hours recently, highlight these during your discussion."
+        }
+      },
+      "anonymousStories": [
+        {
+          "role": "SDE Intern",
+          "city": "Bangalore",
+          "companyType": "startup",
+          "situation": "Started with \u20b910k stipend, working 40+ hrs/week on React and Node.js projects in a fast-paced startup.",
+          "outcome": "success",
+          "keyLesson": "Showcasing a live React project and quantifiable impact led to stipend bump to \u20b928k.",
+          "relevanceScore": 100
+        },
+        {
+          "role": "Full-stack Intern",
+          "city": "Mumbai",
+          "companyType": "startup",
+          "situation": "Offered \u20b920k at a startup, leveraged a competing offer to negotiate up as workload exceeded 45 hrs/week.",
+          "outcome": "success",
+          "keyLesson": "Having another offer and proving skill value enabled a jump to \u20b935k.",
+          "relevanceScore": 75
+        },
+        {
+          "role": "Backend Developer Intern",
+          "city": "Hyderabad",
+          "companyType": "startup",
+          "situation": "Worked unpaid for 1st month, asked for stipend after taking on backend features with Node.js.",
+          "outcome": "partial success",
+          "keyLesson": "Standing firm led to \u20b915k/month; could have asked higher if done at start.",
+          "relevanceScore": 70
+        },
+        {
+          "role": "SDE Intern",
+          "city": "Bangalore",
+          "companyType": "startup",
+          "situation": "Internship offered \u20b912k, 50 hrs/week; concern on overwork and low pay.",
+          "outcome": "learning experience",
+          "keyLesson": "Attempted negotiation, but offer was fixed. Switched to company with better culture and pay.",
+          "relevanceScore": 65
+        },
+        {
+          "role": "SDE Intern",
+          "city": "Chennai",
+          "companyType": "startup",
+          "situation": "Accepted \u20b98k/month due to lack of offers; worked long hours, responsibilities increased.",
+          "outcome": "awareness",
+          "keyLesson": "Recognized exploitative pay; left early. Vowed to always benchmark before accepting.",
+          "relevanceScore": 55
+        }
+      ],
+      "summary": {
+        "overallAssessment": "Based on your skills, workload, and Bangalore\u2019s competitive tech landscape, you are underpaid compared to market standards. Most similar interns earn nearly double your current rate, especially with a 45-hour workweek and a strong tech stack.",
+        "nextSteps": [
+          "Initiate a stipend review with your manager using the negotiation materials provided.",
+          "Document your hours and contributions in detail to support your case.",
+          "Reference the benchmark data and stories of successful negotiations from peers.",
+          "Consider parallel job applications if, after a fair try, conditions do not improve."
+        ],
+        "confidenceLevel": "High"
+      }
+    },
+    "metadata": {
+      "agent_name": "Pay Assessment Manager",
+      "timestamp": "2024-06-13T12:45:00Z",
+      "sub_agents_consulted": [
+        "Benchmark Analysis Agent",
+        "Negotiation Coach Agent",
+        "Story Curator Agent"
+      ]
+    }
+  },
+  "is_actual_tested": true,
+  "test_timestamp": "2026-02-06T09:11:15.141342",
+  "test_message_used": "Hello, provide a sample response",
+  "test_error": "Agent test timed out after 30 seconds",
+  "actual_test_response": {
+    "status": "success",
+    "result": {
+      "verdict": "Underpaid",
+      "currentStipend": 15000,
+      "suggestedFairStipend": {
+        "min": 27000,
+        "max": 54000
+      },
+      "percentageDifference": -44.44,
+      "industryAverages": {
+        "roleAverage": 25000,
+        "cityAverage": 22000,
+        "source": "Based on 100+ similar internships in Bangalore metro area, 2024"
+      },
+      "benchmarkAnalysis": {
+        "verdict": "Underpaid",
+        "reasoning": "This is a software/tech internship in Bangalore, with in-demand skills (React, Node.js) and demanding hours (45/week). After applying the city, skill, company, and overtime multipliers, the fair stipend range should be significantly higher than \u20b915,000/month. The current stipend represents just over half the recommended minimum, categorizing it as underpaid for the expectations set.",
+        "extremeCase": false,
+        "safetyResources": null
+      },
+      "negotiationCoaching": {
+        "scenarios": [
+          {
+            "title": "Requesting initial stipend review",
+            "steps": [
+              "Research Bangalore stipend rates for similar software development internships (done via benchmark analysis).",
+              "Prepare a list of your key skills (JavaScript, React, Node.js) and recent contributions/projects.",
+              "Request a short meeting with [Manager Name] to discuss compensation.",
+              "Express appreciation for the opportunity, then share benchmark figures and politely state your ask for a stipend review.",
+              "Propose a range (INR 27,000\u201354,000) rather than a fixed number to allow room for discussion."
+            ],
+            "tips": [
+              "Acknowledge the startup\u2019s resource constraints but affirm the value you bring.",
+              "Open with gratitude to set a positive tone.",
+              "Be ready to explain your workload (45 hours/week) as above standard."
+            ]
+          },
+          {
+            "title": "Negotiating after demonstrating value",
+            "steps": [
+              "Document specific results or progress (e.g., shipped features, user feedback, code reviews).",
+              "Highlight where you took initiative or solved key problems using your skills.",
+              "Schedule a follow-up with [Manager Name] after 2\u20133 months of strong performance.",
+              "Reference both market benchmarks and your direct impact before requesting a revised stipend."
+            ],
+            "tips": [
+              "Data-driven impact stories can sway decisions.",
+              "Offer to take on greater responsibilities as part of the negotiation."
+            ]
+          },
+          {
+            "title": "Addressing unfair treatment",
+            "steps": [
+              "Maintain a log of hours worked and extra responsibilities handled beyond your initial scope.",
+              "Draft a message or request a discussion with [Manager Name] first; focus on collaborative problem-solving.",
+              "If the issue is not resolved, consider approaching HR or a mentor, using diplomatic language.",
+              "Suggest constructive solutions, such as adjusting workload or a midway stipend review."
+            ],
+            "tips": [
+              "Avoid accusatory language; stress fairness and mutual benefit.",
+              "Frame the conversation as a desire for a sustainable internship experience."
+            ]
+          },
+          {
+            "title": "Leveraging competing offers",
+            "steps": [
+              "If you receive an offer from another company, request a private meeting with [Manager Name].",
+              "Disclose the existence (not necessarily the details) of the competing offer.",
+              "Emphasize your preference to remain with [Company Name] if compensation can be made more competitive, referencing the market band.",
+              "Be respectful, not confrontational, to preserve relationships."
+            ],
+            "tips": [
+              "Do not fabricate offers.",
+              "Use this as a last resort, ensuring internal discussions have occurred first."
+            ]
+          }
+        ],
+        "preDraftedMessages": {
+          "professional": "Dear [Manager Name],\n\nI would like to express my gratitude for the opportunity to intern as a Software Development Intern at [Company Name]. Over the last few weeks, I have had the privilege of contributing to the team using my technical skills in JavaScript, React, and Node.js, and have enjoyed working in such a dynamic environment. \n\nI have researched current stipend practices for software interns in Bangalore, and market benchmarks indicate a fair stipend in the range of INR 27,000\u201354,000 per month for similar profiles and workloads. Given my weekly commitment of 45 hours and the current scope of responsibilities, I am seeking a review of my stipend, which is currently below this market standard.\n\nI am enthusiastic about further growing with [Company Name] and am open to discussing ways I can add additional value. I look forward to your feedback and guidance on this matter.\n\nBest regards,\n[Your Name]",
+          "firm": "Hello [Manager Name],\n\nThank you for your ongoing support. I want to initiate a candid conversation regarding my compensation as a Software Development Intern at [Company Name]. With my skill set in JavaScript, React, and Node.js, I have contributed significantly to recent projects, often working 45 hours per week. According to Bangalore tech internship benchmarks, a fair stipend falls between INR 27,000 and 54,000 monthly.\n\nCurrently, my stipend is INR 15,000, which is considerably below industry standards for this city and role. I believe my contributions and workload strongly justify an adjustment. I would appreciate it if we could discuss aligning my compensation closer to the prevailing rates. I remain committed to the company's goals and look forward to finding a fair resolution.\n\nThank you,\n[Your Name]",
+          "casual": "Hi [Manager Name],\n\nHope you\u2019re doing well! I\u2019ve really enjoyed being part of the [Company Name] team and working on projects with JavaScript, React, and Node.js. I\u2019m putting in about 45 hours a week and feel I\u2019ve been able to make a solid impact so far.\n\nI did some research and saw that tech interns in Bangalore are usually paid between INR 27,000 and 54,000 per month. My current stipend is quite a bit lower, so I wanted to check if there\u2019s a possibility to review it. I\u2019m eager to keep learning and contributing more, and am open to thoughts on how I can add extra value going ahead too!\n\nThanks for considering my request \ud83d\ude0a\n\nBest,\n[Your Name]"
+        },
+        "talkingPoints": [
+          "Market data shows the average stipend for software development interns in Bangalore is INR 27,000\u201354,000/month; my current stipend is only INR 15,000.",
+          "I am proficient in JavaScript, React, and Node.js and have contributed to key projects, taking on complex development tasks.",
+          "I consistently work 45 hours per week, which exceeds the standard internship workload.",
+          "Bangalore is a high cost-of-living city, making fair compensation critical for sustainability.",
+          "Startups value flexibility and impact\u2014my adaptability and technical skills have positively influenced our team\u2019s outcomes.",
+          "Industry norms for tech internships at startups suggest stipends should be competitive to attract and retain talent."
+        ],
+        "additionalResources": {
+          "dosDonts": {
+            "dos": [
+              "Do initiate the conversation respectfully, showing appreciation for the opportunity.",
+              "Do use market benchmarks and your work hours to support your case.",
+              "Do reference specific contributions and the value you bring using your skills.",
+              "Do suggest you\u2019re open to feedback and eager to contribute more."
+            ],
+            "donts": [
+              "Don\u2019t make ultimatums or threats; startups value collaboration.",
+              "Don\u2019t compare yourself negatively to colleagues or sound entitled.",
+              "Don\u2019t neglect to document your achievements and hours.",
+              "Don\u2019t escalate to HR/mentors without first trying to resolve with your manager."
+            ]
+          },
+          "timingAdvice": "The best time to request a stipend review is after successfully completing a major project milestone, receiving positive feedback, or at the midpoint of your internship. Aim for mid to late weekdays, when your manager is less likely to be overwhelmed. Avoid periods of team deadlines or financial planning cycles. If you have taken on extra responsibilities or worked extended hours recently, highlight these during your discussion."
+        }
+      },
+      "anonymousStories": [
+        {
+          "role": "SDE Intern",
+          "city": "Bangalore",
+          "companyType": "startup",
+          "situation": "Started with \u20b910k stipend, working 40+ hrs/week on React and Node.js projects in a fast-paced startup.",
+          "outcome": "success",
+          "keyLesson": "Showcasing a live React project and quantifiable impact led to stipend bump to \u20b928k.",
+          "relevanceScore": 100
+        },
+        {
+          "role": "Full-stack Intern",
+          "city": "Mumbai",
+          "companyType": "startup",
+          "situation": "Offered \u20b920k at a startup, leveraged a competing offer to negotiate up as workload exceeded 45 hrs/week.",
+          "outcome": "success",
+          "keyLesson": "Having another offer and proving skill value enabled a jump to \u20b935k.",
+          "relevanceScore": 75
+        },
+        {
+          "role": "Backend Developer Intern",
+          "city": "Hyderabad",
+          "companyType": "startup",
+          "situation": "Worked unpaid for 1st month, asked for stipend after taking on backend features with Node.js.",
+          "outcome": "partial success",
+          "keyLesson": "Standing firm led to \u20b915k/month; could have asked higher if done at start.",
+          "relevanceScore": 70
+        },
+        {
+          "role": "SDE Intern",
+          "city": "Bangalore",
+          "companyType": "startup",
+          "situation": "Internship offered \u20b912k, 50 hrs/week; concern on overwork and low pay.",
+          "outcome": "learning experience",
+          "keyLesson": "Attempted negotiation, but offer was fixed. Switched to company with better culture and pay.",
+          "relevanceScore": 65
+        },
+        {
+          "role": "SDE Intern",
+          "city": "Chennai",
+          "companyType": "startup",
+          "situation": "Accepted \u20b98k/month due to lack of offers; worked long hours, responsibilities increased.",
+          "outcome": "awareness",
+          "keyLesson": "Recognized exploitative pay; left early. Vowed to always benchmark before accepting.",
+          "relevanceScore": 55
+        }
+      ],
+      "summary": {
+        "overallAssessment": "Based on your skills, workload, and Bangalore\u2019s competitive tech landscape, you are underpaid compared to market standards. Most similar interns earn nearly double your current rate, especially with a 45-hour workweek and a strong tech stack.",
+        "nextSteps": [
+          "Initiate a stipend review with your manager using the negotiation materials provided.",
+          "Document your hours and contributions in detail to support your case.",
+          "Reference the benchmark data and stories of successful negotiations from peers.",
+          "Consider parallel job applications if, after a fair try, conditions do not improve."
+        ],
+        "confidenceLevel": "High"
+      }
+    },
+    "metadata": {
+      "agent_name": "Pay Assessment Manager",
+      "timestamp": "2024-06-13T12:45:00Z",
+      "sub_agents_consulted": [
+        "Benchmark Analysis Agent",
+        "Negotiation Coach Agent",
+        "Story Curator Agent"
+      ]
+    }
+  },
+  "test_passed": true
+}

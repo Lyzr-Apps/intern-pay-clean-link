@@ -1,0 +1,64 @@
+{
+  "nodes": [
+    {
+      "id": "input_node",
+      "type": "Input",
+      "label": "User Pay Assessment Input",
+      "nodeCategory": "input"
+    },
+    {
+      "id": "pay_assessment_manager",
+      "type": "Agent",
+      "label": "Pay Assessment Manager",
+      "nodeCategory": "agent",
+      "agent_id": "6985af5c2a763ad393eee3ed",
+      "agent_name": "Pay Assessment Manager",
+      "agent_type": "manager"
+    },
+    {
+      "id": "benchmark_analysis_agent",
+      "type": "Agent",
+      "label": "Benchmark Analysis Agent",
+      "nodeCategory": "agent",
+      "agent_id": "6985aed74e2223b52121c426",
+      "agent_name": "Benchmark Analysis Agent",
+      "agent_type": "sub-agent"
+    },
+    {
+      "id": "negotiation_coach_agent",
+      "type": "Agent",
+      "label": "Negotiation Coach Agent",
+      "nodeCategory": "agent",
+      "agent_id": "6985aef97551cb7920ffea1f",
+      "agent_name": "Negotiation Coach Agent",
+      "agent_type": "sub-agent"
+    },
+    {
+      "id": "story_curator_agent",
+      "type": "Agent",
+      "label": "Story Curator Agent",
+      "nodeCategory": "agent",
+      "agent_id": "6985af35705117394b7119d9",
+      "agent_name": "Story Curator Agent",
+      "agent_type": "sub-agent"
+    }
+  ],
+  "edges": [
+    {
+      "source": "input_node",
+      "target": "pay_assessment_manager"
+    },
+    {
+      "source": "pay_assessment_manager",
+      "target": "benchmark_analysis_agent"
+    },
+    {
+      "source": "pay_assessment_manager",
+      "target": "negotiation_coach_agent"
+    },
+    {
+      "source": "pay_assessment_manager",
+      "target": "story_curator_agent"
+    }
+  ]
+}

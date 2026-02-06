@@ -1,0 +1,169 @@
+{
+  "agent_name": "Story Curator Agent",
+  "agent_id": "6985af35705117394b7119d9",
+  "agent_purpose": "story_curation",
+  "description": "Curates relevant anonymous intern stories matching user's situation for inspiration and context",
+  "response_schema": {
+    "status": "string",
+    "result": {
+      "stories": [
+        {
+          "role": "string",
+          "city": "string",
+          "companyType": "string",
+          "situation": "string",
+          "outcome": "string",
+          "keyLesson": "string",
+          "relevanceScore": "number"
+        }
+      ],
+      "summary": {
+        "totalStoriesReviewed": "number",
+        "matchingCriteria": [
+          "string"
+        ],
+        "inspirationMessage": "string"
+      }
+    },
+    "metadata": {
+      "agent_name": "string",
+      "timestamp": "string"
+    }
+  },
+  "example_response": {
+    "status": "success",
+    "result": {
+      "stories": [
+        {
+          "role": "SDE Intern",
+          "city": "Bangalore",
+          "companyType": "Startup",
+          "situation": "Started at \u20b910k/month in a Bangalore startup; felt underpaid given workload and skills.",
+          "outcome": "success",
+          "keyLesson": "Showcasing practical project work during review can convince startups to pay more.",
+          "relevanceScore": 100
+        },
+        {
+          "role": "Backend Developer Intern",
+          "city": "Hyderabad",
+          "companyType": "Startup",
+          "situation": "Unpaid at first; after expressing concerns and readiness to quit, offered \u20b915k stipend.",
+          "outcome": "success",
+          "keyLesson": "Clear communication about your value and alternatives can drive positive negotiation.",
+          "relevanceScore": 90
+        },
+        {
+          "role": "Full-stack Intern",
+          "city": "Mumbai",
+          "companyType": "Startup",
+          "situation": "Initially offered \u20b920k, used a competing offer to raise stipend to \u20b935k/month.",
+          "outcome": "success",
+          "keyLesson": "Having another offer greatly strengthens your position in negotiations.",
+          "relevanceScore": 85
+        },
+        {
+          "role": "SDE Intern",
+          "city": "Bangalore",
+          "companyType": "Startup",
+          "situation": "Offered \u20b98k for 40+ hours/week, attempts to negotiate met with vague promises.",
+          "outcome": "learning experience",
+          "keyLesson": "If promises remain vague, consider searching for better opportunities.",
+          "relevanceScore": 80
+        },
+        {
+          "role": "SDE Intern",
+          "city": "Bangalore",
+          "companyType": "Startup",
+          "situation": "Promised \u20b925k but paid only \u20b910k after joining; took legal action.",
+          "outcome": "learning experience",
+          "keyLesson": "Get stipend details in writing; don\u2019t hesitate to escalate if agreements are violated.",
+          "relevanceScore": 80
+        }
+      ],
+      "summary": {
+        "totalStoriesReviewed": 12,
+        "matchingCriteria": [
+          "Role: Software Development/Backend/Full-stack Intern",
+          "City: Bangalore or other major tech hubs",
+          "Company Type: Startup",
+          "Verdict: Underpaid/Exploited"
+        ],
+        "inspirationMessage": "Many software interns in startups felt underpaid but succeeded by highlighting their impact, showing competing offers, or standing firm on their value. Persistence and preparation can lead to fairer compensation\u2014don\u2019t hesitate to negotiate!"
+      }
+    },
+    "metadata": {
+      "agent_name": "Story Curator Agent",
+      "timestamp": "2024-06-13T10:42:25Z"
+    }
+  },
+  "is_actual_tested": true,
+  "test_timestamp": "2026-02-06T09:13:42.316621",
+  "test_message_used": "Hello, provide a sample response",
+  "actual_test_response": {
+    "status": "success",
+    "result": {
+      "stories": [
+        {
+          "role": "SDE Intern",
+          "city": "Bangalore",
+          "companyType": "Startup",
+          "situation": "Started at \u20b910k/month in a Bangalore startup; felt underpaid given workload and skills.",
+          "outcome": "success",
+          "keyLesson": "Showcasing practical project work during review can convince startups to pay more.",
+          "relevanceScore": 100
+        },
+        {
+          "role": "Backend Developer Intern",
+          "city": "Hyderabad",
+          "companyType": "Startup",
+          "situation": "Unpaid at first; after expressing concerns and readiness to quit, offered \u20b915k stipend.",
+          "outcome": "success",
+          "keyLesson": "Clear communication about your value and alternatives can drive positive negotiation.",
+          "relevanceScore": 90
+        },
+        {
+          "role": "Full-stack Intern",
+          "city": "Mumbai",
+          "companyType": "Startup",
+          "situation": "Initially offered \u20b920k, used a competing offer to raise stipend to \u20b935k/month.",
+          "outcome": "success",
+          "keyLesson": "Having another offer greatly strengthens your position in negotiations.",
+          "relevanceScore": 85
+        },
+        {
+          "role": "SDE Intern",
+          "city": "Bangalore",
+          "companyType": "Startup",
+          "situation": "Offered \u20b98k for 40+ hours/week, attempts to negotiate met with vague promises.",
+          "outcome": "learning experience",
+          "keyLesson": "If promises remain vague, consider searching for better opportunities.",
+          "relevanceScore": 80
+        },
+        {
+          "role": "SDE Intern",
+          "city": "Bangalore",
+          "companyType": "Startup",
+          "situation": "Promised \u20b925k but paid only \u20b910k after joining; took legal action.",
+          "outcome": "learning experience",
+          "keyLesson": "Get stipend details in writing; don\u2019t hesitate to escalate if agreements are violated.",
+          "relevanceScore": 80
+        }
+      ],
+      "summary": {
+        "totalStoriesReviewed": 12,
+        "matchingCriteria": [
+          "Role: Software Development/Backend/Full-stack Intern",
+          "City: Bangalore or other major tech hubs",
+          "Company Type: Startup",
+          "Verdict: Underpaid/Exploited"
+        ],
+        "inspirationMessage": "Many software interns in startups felt underpaid but succeeded by highlighting their impact, showing competing offers, or standing firm on their value. Persistence and preparation can lead to fairer compensation\u2014don\u2019t hesitate to negotiate!"
+      }
+    },
+    "metadata": {
+      "agent_name": "Story Curator Agent",
+      "timestamp": "2024-06-13T10:42:25Z"
+    }
+  },
+  "test_passed": true
+}

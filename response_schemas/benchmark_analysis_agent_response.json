@@ -1,0 +1,82 @@
+{
+  "agent_name": "Benchmark Analysis Agent",
+  "agent_id": "6985aed74e2223b52121c426",
+  "agent_purpose": "benchmark_analysis",
+  "description": "Analyzes internship compensation against India market benchmarks and provides verdict with fair stipend ranges",
+  "response_schema": {
+    "status": "string",
+    "result": {
+      "verdict": "string",
+      "reasoning": "string",
+      "currentStipend": "number",
+      "suggestedFairStipend": {
+        "min": "number",
+        "max": "number"
+      },
+      "percentageDifference": "number",
+      "industryAverages": {
+        "roleAverage": "number",
+        "cityAverage": "number",
+        "source": "string"
+      },
+      "extremeCase": "boolean",
+      "safetyResources": "null"
+    },
+    "metadata": {
+      "agent_name": "string",
+      "timestamp": "string"
+    }
+  },
+  "example_response": {
+    "status": "success",
+    "result": {
+      "verdict": "Underpaid",
+      "reasoning": "The role is Software Development in Bangalore, with in-demand skills like React and Node.js. For 45 hours/week (overtime), the fair stipend should factor in both skills premium and extra hours. The current stipend of \u20b915,000/month is at the bare minimum of the base range for this region and position, but considering overtime expectations and skills, it falls well below the fair market-adjusted rate.",
+      "currentStipend": 15000,
+      "suggestedFairStipend": {
+        "min": 25200,
+        "max": 58000
+      },
+      "percentageDifference": -40.48,
+      "industryAverages": {
+        "roleAverage": 25000,
+        "cityAverage": 27000,
+        "source": "Based on 120+ similar internships sampled from Bangalore tech startups"
+      },
+      "extremeCase": false,
+      "safetyResources": null
+    },
+    "metadata": {
+      "agent_name": "Benchmark Analysis Agent",
+      "timestamp": "2024-06-12T14:25:00Z"
+    }
+  },
+  "is_actual_tested": true,
+  "test_timestamp": "2026-02-06T09:12:39.588603",
+  "test_message_used": "Hello, provide a sample response",
+  "actual_test_response": {
+    "status": "success",
+    "result": {
+      "verdict": "Underpaid",
+      "reasoning": "The role is Software Development in Bangalore, with in-demand skills like React and Node.js. For 45 hours/week (overtime), the fair stipend should factor in both skills premium and extra hours. The current stipend of \u20b915,000/month is at the bare minimum of the base range for this region and position, but considering overtime expectations and skills, it falls well below the fair market-adjusted rate.",
+      "currentStipend": 15000,
+      "suggestedFairStipend": {
+        "min": 25200,
+        "max": 58000
+      },
+      "percentageDifference": -40.48,
+      "industryAverages": {
+        "roleAverage": 25000,
+        "cityAverage": 27000,
+        "source": "Based on 120+ similar internships sampled from Bangalore tech startups"
+      },
+      "extremeCase": false,
+      "safetyResources": null
+    },
+    "metadata": {
+      "agent_name": "Benchmark Analysis Agent",
+      "timestamp": "2024-06-12T14:25:00Z"
+    }
+  },
+  "test_passed": true
+}

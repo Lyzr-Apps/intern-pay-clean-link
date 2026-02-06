@@ -1,0 +1,40 @@
+{
+  "workflow_created": true,
+  "agents": [
+    {
+      "node_id": "benchmark_analysis_agent",
+      "agent_id": "6985aed74e2223b52121c426",
+      "agent_name": "Benchmark Analysis Agent",
+      "agent_type": "sub-agent",
+      "status": "created"
+    },
+    {
+      "node_id": "negotiation_coach_agent",
+      "agent_id": "6985aef97551cb7920ffea1f",
+      "agent_name": "Negotiation Coach Agent",
+      "agent_type": "sub-agent",
+      "status": "created"
+    },
+    {
+      "node_id": "story_curator_agent",
+      "agent_id": "6985af35705117394b7119d9",
+      "agent_name": "Story Curator Agent",
+      "agent_type": "sub-agent",
+      "status": "created"
+    },
+    {
+      "node_id": "pay_assessment_manager",
+      "agent_id": "6985af5c2a763ad393eee3ed",
+      "agent_name": "Pay Assessment Manager",
+      "agent_type": "manager",
+      "managed_agents": [
+        "6985aed74e2223b52121c426",
+        "6985aef97551cb7920ffea1f",
+        "6985af35705117394b7119d9"
+      ],
+      "status": "created"
+    }
+  ],
+  "total_agents": 4,
+  "creation_timestamp": "2026-02-06T00:00:00Z"
+}

@@ -1,0 +1,251 @@
+{
+  "agent_name": "Negotiation Coach Agent",
+  "agent_id": "6985aef97551cb7920ffea1f",
+  "agent_purpose": "negotiation_coaching",
+  "description": "Generates negotiation strategies, decision trees, and personalized messages for stipend negotiation",
+  "response_schema": {
+    "status": "string",
+    "result": {
+      "scenarios": [
+        {
+          "title": "string",
+          "steps": [
+            "string"
+          ],
+          "tips": [
+            "string"
+          ]
+        }
+      ],
+      "preDraftedMessages": {
+        "professional": "string",
+        "firm": "string",
+        "casual": "string"
+      },
+      "talkingPoints": [
+        "string"
+      ],
+      "additionalResources": {
+        "dosDonts": {
+          "dos": [
+            "string"
+          ],
+          "donts": [
+            "string"
+          ]
+        },
+        "timingAdvice": "string"
+      }
+    },
+    "metadata": {
+      "agent_name": "string",
+      "timestamp": "string"
+    }
+  },
+  "example_response": {
+    "status": "success",
+    "result": {
+      "scenarios": [
+        {
+          "title": "Requesting Initial Stipend Review",
+          "steps": [
+            "Prepare data on Bangalore internship stipend benchmarks (\u20b920k\u2013\u20b935k/month for Software roles).",
+            "Schedule a meeting with [Manager Name], expressing appreciation for the opportunity and your excitement about contributing.",
+            "Highlight your skills, hours per week, and commitment demonstrated so far.",
+            "Politely present market data, stating your current stipend is below market standards for Bangalore.",
+            "Request a review of your stipend in light of value delivered and market benchmarks.",
+            "Suggest a fair range (as per prompt), while signalling openness for discussion."
+          ],
+          "tips": [
+            "Use gratitude and positive language; frame as a collaborative discussion.",
+            "Highlight your unique contributions and willingness to take on more responsibility."
+          ]
+        },
+        {
+          "title": "Negotiating After Demonstrating Value",
+          "steps": [
+            "Compile examples of successful project contributions, extra responsibilities, and positive feedback.",
+            "Quantify impact (features shipped, bugs fixed, customer feedback, team support, etc.).",
+            "Request a follow-up meeting with [Manager Name] post-milestone/release.",
+            "Present your achievements and connect these directly to company outcomes.",
+            "Refer to market benchmark for comparable internships in Bangalore.",
+            "Propose a revised stipend, referencing your improved value to the team."
+          ],
+          "tips": [
+            "Have concrete examples and, if possible, written praise ready.",
+            "Stay humble; let your work speak, but don\u2019t underplay your impact."
+          ]
+        },
+        {
+          "title": "Addressing Unfair Treatment",
+          "steps": [
+            "After unsuccessful initial negotiation, document communication and attempts made.",
+            "If direct manager declines, seek advice from a mentor or trusted senior within the startup.",
+            "Express your intent to resolve matters internally before approaching HR.",
+            "Use respectful language that aligns with startup culture: focus on collaboration and growth.",
+            "If necessary, escalate discreetly to HR or a co-founder, presenting your case with all supporting data."
+          ],
+          "tips": [
+            "Avoid accusatory language; focus on transparency and intent to continue contributing.",
+            "Always allow for face-saving; e.g. acknowledge company constraints but emphasize fairness."
+          ]
+        },
+        {
+          "title": "Leveraging Competing Offers",
+          "steps": [
+            "If you have an offer with better pay or conditions, obtain a formal written offer from the other company.",
+            "Set up a private discussion with [Manager Name], expressing loyalty but also need for financial recognition.",
+            "Share the offer diplomatically, emphasizing your preference to remain at [Company Name] if fair compensation is possible.",
+            "Suggest a stipend match or reasonable increase within the suggested fair range.",
+            "Negotiate respectfully, accepting a counter-offer if it closes the gap significantly."
+          ],
+          "tips": [
+            "Never appear to threaten; position as an opportunity for the current company to retain talent.",
+            "Show willingness to compromise, and express gratitude for any improvements."
+          ]
+        }
+      ],
+      "preDraftedMessages": {
+        "professional": "Subject: Request for Stipend Review \u2013 Software Internship at [Company Name]\n\nDear [Manager Name],\n\nI would like to express my sincere appreciation for the opportunity to intern at [Company Name]. I have thoroughly enjoyed working on impactful projects and contributing to our development team. Based on the market analysis for software internships in Bangalore, the typical stipend ranges between \u20b920,000 and \u20b935,000 per month. Currently, my stipend is \u20b915,000, which appears to be below the prevailing standards for similar roles and contributions in our city.\n\nGiven my skill set, commitment, and the value I believe I am bringing to the team\u2014particularly with [mention one or two ongoing projects or achievements]\u2014I would like to request a review of my current compensation. I am confident that aligning my stipend more closely with industry benchmarks will enable me to maintain focus and dedicate even more energy to supporting [Company Name]'s goals.\n\nThank you very much for considering my request. I am open to discussing this further at your convenience.\n\nBest regards,\n[Your Name]",
+        "firm": "Subject: Stipend Adjustment Discussion \u2013 [Company Name] Software Internship\n\nHi [Manager Name],\n\nI am writing to discuss my current stipend for the software intern role. As per widely-referenced internship benchmarks in Bangalore, software interns are compensated within the \u20b920,000\u2013\u20b935,000 range, reflecting the city's living expenses and industry standards. My present stipend of \u20b915,000 is below this norm. Given the responsibilities and technical skills I have contributed so far\u2014specifically in [project/feature/example]\u2014I believe my performance warrants a fairer compensation.\n\nI am invested in [Company Name]'s success and have taken proactive steps to deliver high-quality results consistently. I respectfully request a stipend adjustment that reflects both my contributions and the prevailing market rates. I am confident we can arrive at a solution benefiting both sides.\n\nLooking forward to your feedback and a constructive conversation.\n\nRegards,\n[Your Name]",
+        "casual": "Hi [Manager Name],\n\nHope you\u2019re having a great day! I wanted to quickly chat about something important. I've really enjoyed working here at [Company Name], and getting hands-on experience in software development. I did some research on internship stipends for similar roles in Bangalore, and found that they\u2019re generally between \u20b920k and \u20b935k per month. I\u2019m currently at \u20b915k, which is a bit below that.\n\nGiven the hours and effort I\u2019m putting in, along with my work on [project/example], I wanted to ask if we could review my stipend. I\u2019m keen to keep learning and contributing, and a little adjustment here would really help me focus and cover living costs. Let me know if we can discuss this soon!\n\nThanks so much,\n[Your Name]"
+      },
+      "talkingPoints": [
+        "According to credible Bangalore market benchmarks, software internship stipends typically fall within \u20b920,000\u2013\u20b935,000 per month.",
+        "I\u2019ve brought valuable technical skills such as [list top 2-3 skills], and have successfully contributed to [project/example].",
+        "I am working [mention total hours per week], consistently demonstrating commitment and reliability in a dynamic startup environment.",
+        "Industry standards indicate higher compensation for similar roles and responsibilities in Bangalore, factoring in both cost of living and market demand.",
+        "Aligning my stipend would not only reflect fairness but also support me in contributing even more to [Company Name].",
+        "I value the culture and growth opportunities here, and am eager to continue learning and making a positive impact."
+      ],
+      "additionalResources": {
+        "dosDonts": {
+          "dos": [
+            "Do research Bangalore-specific internship stipend data before discussing.",
+            "Do approach your manager respectfully and thank them for the guidance so far.",
+            "Do highlight specific contributions and skills relevant to team goals.",
+            "Do express willingness to continue contributing and learning.",
+            "Do remain open to compromise if the company faces budget constraints."
+          ],
+          "donts": [
+            "Don\u2019t frame the request as an ultimatum or threat.",
+            "Don\u2019t compare yourself directly to senior employees.",
+            "Don\u2019t raise the issue publicly or in group settings.",
+            "Don\u2019t disregard startup resource limitations\u2014show understanding.",
+            "Don\u2019t be discouraged by initial hesitation; sometimes decisions take time in startups."
+          ]
+        },
+        "timingAdvice": "Schedule the conversation after completing a visible milestone or delivering good results. Avoid the first week of the month when leadership may be busy with operational matters. Try to find a time when your manager is less stressed and can give you full attention\u2014ideally requesting a 1:1 or private chat early in the week."
+      }
+    },
+    "metadata": {
+      "agent_name": "Negotiation Coach Agent",
+      "timestamp": "2024-06-08T16:45:21Z"
+    }
+  },
+  "is_actual_tested": true,
+  "test_timestamp": "2026-02-06T09:13:13.328837",
+  "test_message_used": "Hello, provide a sample response",
+  "actual_test_response": {
+    "status": "success",
+    "result": {
+      "scenarios": [
+        {
+          "title": "Requesting Initial Stipend Review",
+          "steps": [
+            "Prepare data on Bangalore internship stipend benchmarks (\u20b920k\u2013\u20b935k/month for Software roles).",
+            "Schedule a meeting with [Manager Name], expressing appreciation for the opportunity and your excitement about contributing.",
+            "Highlight your skills, hours per week, and commitment demonstrated so far.",
+            "Politely present market data, stating your current stipend is below market standards for Bangalore.",
+            "Request a review of your stipend in light of value delivered and market benchmarks.",
+            "Suggest a fair range (as per prompt), while signalling openness for discussion."
+          ],
+          "tips": [
+            "Use gratitude and positive language; frame as a collaborative discussion.",
+            "Highlight your unique contributions and willingness to take on more responsibility."
+          ]
+        },
+        {
+          "title": "Negotiating After Demonstrating Value",
+          "steps": [
+            "Compile examples of successful project contributions, extra responsibilities, and positive feedback.",
+            "Quantify impact (features shipped, bugs fixed, customer feedback, team support, etc.).",
+            "Request a follow-up meeting with [Manager Name] post-milestone/release.",
+            "Present your achievements and connect these directly to company outcomes.",
+            "Refer to market benchmark for comparable internships in Bangalore.",
+            "Propose a revised stipend, referencing your improved value to the team."
+          ],
+          "tips": [
+            "Have concrete examples and, if possible, written praise ready.",
+            "Stay humble; let your work speak, but don\u2019t underplay your impact."
+          ]
+        },
+        {
+          "title": "Addressing Unfair Treatment",
+          "steps": [
+            "After unsuccessful initial negotiation, document communication and attempts made.",
+            "If direct manager declines, seek advice from a mentor or trusted senior within the startup.",
+            "Express your intent to resolve matters internally before approaching HR.",
+            "Use respectful language that aligns with startup culture: focus on collaboration and growth.",
+            "If necessary, escalate discreetly to HR or a co-founder, presenting your case with all supporting data."
+          ],
+          "tips": [
+            "Avoid accusatory language; focus on transparency and intent to continue contributing.",
+            "Always allow for face-saving; e.g. acknowledge company constraints but emphasize fairness."
+          ]
+        },
+        {
+          "title": "Leveraging Competing Offers",
+          "steps": [
+            "If you have an offer with better pay or conditions, obtain a formal written offer from the other company.",
+            "Set up a private discussion with [Manager Name], expressing loyalty but also need for financial recognition.",
+            "Share the offer diplomatically, emphasizing your preference to remain at [Company Name] if fair compensation is possible.",
+            "Suggest a stipend match or reasonable increase within the suggested fair range.",
+            "Negotiate respectfully, accepting a counter-offer if it closes the gap significantly."
+          ],
+          "tips": [
+            "Never appear to threaten; position as an opportunity for the current company to retain talent.",
+            "Show willingness to compromise, and express gratitude for any improvements."
+          ]
+        }
+      ],
+      "preDraftedMessages": {
+        "professional": "Subject: Request for Stipend Review \u2013 Software Internship at [Company Name]\n\nDear [Manager Name],\n\nI would like to express my sincere appreciation for the opportunity to intern at [Company Name]. I have thoroughly enjoyed working on impactful projects and contributing to our development team. Based on the market analysis for software internships in Bangalore, the typical stipend ranges between \u20b920,000 and \u20b935,000 per month. Currently, my stipend is \u20b915,000, which appears to be below the prevailing standards for similar roles and contributions in our city.\n\nGiven my skill set, commitment, and the value I believe I am bringing to the team\u2014particularly with [mention one or two ongoing projects or achievements]\u2014I would like to request a review of my current compensation. I am confident that aligning my stipend more closely with industry benchmarks will enable me to maintain focus and dedicate even more energy to supporting [Company Name]'s goals.\n\nThank you very much for considering my request. I am open to discussing this further at your convenience.\n\nBest regards,\n[Your Name]",
+        "firm": "Subject: Stipend Adjustment Discussion \u2013 [Company Name] Software Internship\n\nHi [Manager Name],\n\nI am writing to discuss my current stipend for the software intern role. As per widely-referenced internship benchmarks in Bangalore, software interns are compensated within the \u20b920,000\u2013\u20b935,000 range, reflecting the city's living expenses and industry standards. My present stipend of \u20b915,000 is below this norm. Given the responsibilities and technical skills I have contributed so far\u2014specifically in [project/feature/example]\u2014I believe my performance warrants a fairer compensation.\n\nI am invested in [Company Name]'s success and have taken proactive steps to deliver high-quality results consistently. I respectfully request a stipend adjustment that reflects both my contributions and the prevailing market rates. I am confident we can arrive at a solution benefiting both sides.\n\nLooking forward to your feedback and a constructive conversation.\n\nRegards,\n[Your Name]",
+        "casual": "Hi [Manager Name],\n\nHope you\u2019re having a great day! I wanted to quickly chat about something important. I've really enjoyed working here at [Company Name], and getting hands-on experience in software development. I did some research on internship stipends for similar roles in Bangalore, and found that they\u2019re generally between \u20b920k and \u20b935k per month. I\u2019m currently at \u20b915k, which is a bit below that.\n\nGiven the hours and effort I\u2019m putting in, along with my work on [project/example], I wanted to ask if we could review my stipend. I\u2019m keen to keep learning and contributing, and a little adjustment here would really help me focus and cover living costs. Let me know if we can discuss this soon!\n\nThanks so much,\n[Your Name]"
+      },
+      "talkingPoints": [
+        "According to credible Bangalore market benchmarks, software internship stipends typically fall within \u20b920,000\u2013\u20b935,000 per month.",
+        "I\u2019ve brought valuable technical skills such as [list top 2-3 skills], and have successfully contributed to [project/example].",
+        "I am working [mention total hours per week], consistently demonstrating commitment and reliability in a dynamic startup environment.",
+        "Industry standards indicate higher compensation for similar roles and responsibilities in Bangalore, factoring in both cost of living and market demand.",
+        "Aligning my stipend would not only reflect fairness but also support me in contributing even more to [Company Name].",
+        "I value the culture and growth opportunities here, and am eager to continue learning and making a positive impact."
+      ],
+      "additionalResources": {
+        "dosDonts": {
+          "dos": [
+            "Do research Bangalore-specific internship stipend data before discussing.",
+            "Do approach your manager respectfully and thank them for the guidance so far.",
+            "Do highlight specific contributions and skills relevant to team goals.",
+            "Do express willingness to continue contributing and learning.",
+            "Do remain open to compromise if the company faces budget constraints."
+          ],
+          "donts": [
+            "Don\u2019t frame the request as an ultimatum or threat.",
+            "Don\u2019t compare yourself directly to senior employees.",
+            "Don\u2019t raise the issue publicly or in group settings.",
+            "Don\u2019t disregard startup resource limitations\u2014show understanding.",
+            "Don\u2019t be discouraged by initial hesitation; sometimes decisions take time in startups."
+          ]
+        },
+        "timingAdvice": "Schedule the conversation after completing a visible milestone or delivering good results. Avoid the first week of the month when leadership may be busy with operational matters. Try to find a time when your manager is less stressed and can give you full attention\u2014ideally requesting a 1:1 or private chat early in the week."
+      }
+    },
+    "metadata": {
+      "agent_name": "Negotiation Coach Agent",
+      "timestamp": "2024-06-08T16:45:21Z"
+    }
+  },
+  "test_passed": true
+}

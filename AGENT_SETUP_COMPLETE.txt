@@ -1,0 +1,121 @@
+================================
+INTERNPAY AGENT WORKFLOW SETUP
+================================
+
+Setup Date: 2026-02-06
+Status: ✓ COMPLETE
+
+WORKFLOW ARCHITECTURE
+--------------------
+Pattern: Manager-Subagent
+Total Agents: 4 (1 Manager + 3 Sub-agents)
+
+AGENTS CREATED
+--------------
+
+1. PAY ASSESSMENT MANAGER (Manager Agent)
+   - Agent ID: 6985af5c2a763ad393eee3ed
+   - Role: Pay Assessment Orchestrator
+   - Model: gpt-4.1 (OpenAI)
+   - Temperature: 0.3
+   - Coordinates: All 3 sub-agents
+   - Response Schema: /app/nextjs-project/response_schemas/pay_assessment_manager_response.json
+
+2. BENCHMARK ANALYSIS AGENT (Sub-agent)
+   - Agent ID: 6985aed74e2223b52121c426
+   - Role: India Internship Benchmark Analyst
+   - Model: gpt-4.1 (OpenAI)
+   - Temperature: 0.2
+   - Function: Analyzes pay fairness, calculates suggested stipends, detects exploitation
+   - Response Schema: /app/nextjs-project/response_schemas/benchmark_analysis_agent_response.json
+   - Status: ✓ Tested with actual response
+
+3. NEGOTIATION COACH AGENT (Sub-agent)
+   - Agent ID: 6985aef97551cb7920ffea1f
+   - Role: Internship Negotiation Coach
+   - Model: gpt-4.1 (OpenAI)
+   - Temperature: 0.5
+   - Function: Generates scenarios, messages, and talking points for negotiation
+   - Response Schema: /app/nextjs-project/response_schemas/negotiation_coach_agent_response.json
+   - Status: ✓ Tested with actual response
+
+4. STORY CURATOR AGENT (Sub-agent)
+   - Agent ID: 6985af35705117394b7119d9
+   - Role: Intern Story Curator
+   - Model: gpt-4.1 (OpenAI)
+   - Temperature: 0.3
+   - Function: Retrieves relevant anonymous intern stories
+   - Response Schema: /app/nextjs-project/response_schemas/story_curator_agent_response.json
+   - Status: ✓ Tested with actual response
+
+FILES CREATED
+-------------
+✓ /app/nextjs-project/workflow.json - Complete workflow structure
+✓ /app/nextjs-project/workflow_state.json - Agent state tracking
+✓ /app/nextjs-project/response_schemas/benchmark_analysis_agent_response.json
+✓ /app/nextjs-project/response_schemas/negotiation_coach_agent_response.json
+✓ /app/nextjs-project/response_schemas/story_curator_agent_response.json
+✓ /app/nextjs-project/response_schemas/pay_assessment_manager_response.json
+
+WORKFLOW FLOW
+-------------
+Input Node (User Pay Assessment)
+    ↓
+Pay Assessment Manager (Orchestrator)
+    ↓ (coordinates all 3 sub-agents)
+    ├─→ Benchmark Analysis Agent
+    ├─→ Negotiation Coach Agent
+    └─→ Story Curator Agent
+
+EXPECTED INPUT FORMAT
+--------------------
+{
+  "role": "Software Development Intern",
+  "skills": ["JavaScript", "React", "Node.js"],
+  "hoursPerWeek": 45,
+  "companyType": "Startup",
+  "city": "Bangalore",
+  "currentStipend": 15000,
+  "duration": 6
+}
+
+EXPECTED OUTPUT STRUCTURE
+------------------------
+{
+  "verdict": "Underpaid" | "Fair" | "Exploited",
+  "currentStipend": 15000,
+  "suggestedFairStipend": { "min": 20000, "max": 35000 },
+  "percentageDifference": -40,
+  "industryAverages": { "roleAverage": 28000, "cityAverage": 25000, "source": "..." },
+  "benchmarkAnalysis": { "verdict": "...", "reasoning": "...", "extremeCase": false, ... },
+  "negotiationCoaching": { "scenarios": [...], "preDraftedMessages": {...}, "talkingPoints": [...] },
+  "anonymousStories": [{ "role": "...", "city": "...", "situation": "...", "outcome": "..." }],
+  "summary": { "overallAssessment": "...", "nextSteps": [...], "confidenceLevel": "High" }
+}
+
+MANAGER-SUBAGENT LINKAGE
+------------------------
+The Pay Assessment Manager has been configured with managed_agents:
+- 6985aed74e2223b52121c426 (Benchmark Analysis Agent)
+- 6985aef97551cb7920ffea1f (Negotiation Coach Agent)
+- 6985af35705117394b7119d9 (Story Curator Agent)
+
+The manager will automatically coordinate these agents and aggregate their responses.
+
+INTEGRATION NOTES
+-----------------
+- Trigger: "Check My Pay" button on Assessment Screen
+- All agents use OpenAI's gpt-4.1 model
+- Response schemas tested and validated (3/4 with actual responses)
+- India-specific benchmarks and cultural considerations included
+- Safety resources triggered for extreme exploitation cases
+
+NEXT STEPS FOR FRONTEND
+-----------------------
+1. Use agent ID 6985af5c2a763ad393eee3ed for the Pay Assessment Manager
+2. Send user input in the expected format above
+3. Parse the comprehensive response structure
+4. Display verdict, stipend suggestions, coaching materials, and stories
+5. Handle extreme cases with safety resources if present
+
+================================
